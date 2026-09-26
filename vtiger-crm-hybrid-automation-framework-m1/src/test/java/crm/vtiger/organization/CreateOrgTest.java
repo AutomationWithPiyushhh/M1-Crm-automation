@@ -1,17 +1,8 @@
 package crm.vtiger.organization;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +11,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+
+import generic_utlitiy.FileUtility;
+import generic_utlitiy.JavaUtility;
+import generic_utlitiy.WebDriverUtility;
 
 /**
  * Test Script Name : CreateOrgTest
@@ -53,32 +48,43 @@ public class CreateOrgTest {
 		
 //		common data => the data which is common for all test scripts
 
+//		hard coded data
 //		String browser = "edge";
 //		String url = "http://localhost:8888/";
 //		String un = "admin";
 //		String pwd = "password";
 		
 //		get common data from json file
-		FileReader fr = new FileReader("./src/test/resources/cd.json");
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(fr);
-		JSONObject jObj = (JSONObject) obj;
-		String browser =  jObj.get("browser").toString();
-		String url =  jObj.get("url").toString();
-		String un =  jObj.get("username").toString();
-		String pwd =  jObj.get("password").toString();
 		
-		int number = (int) (Math.random() * 1000);
+//		FileReader fr = new FileReader("./src/test/resources/cd.json");
+//		JSONParser parser = new JSONParser();
+//		Object obj = parser.parse(fr);
+//		JSONObject jObj = (JSONObject) obj;
+//		String browser =  jObj.get("browser").toString();
+//		String url =  jObj.get("url").toString();
+//		String un =  jObj.get("username").toString();
+//		String pwd =  jObj.get("password").toString();
+
+//		get data via generic utility from json file
+		
+		String browser = FileUtility.getDataFromJsonFile("browser");
+		String url = FileUtility.getDataFromJsonFile("url");
+		String un = FileUtility.getDataFromJsonFile("username");
+		String pwd = FileUtility.getDataFromJsonFile("password");
+		
+		int number = JavaUtility.generateRandomNumber();
 //		String orgName = "automationwithpiyush_" + number;
 		
 //		get testscriptdata from excel file
 		
-		FileInputStream fis = new FileInputStream("./src/test/resources/testscriptdata.xlsx");
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("org");
-		Row row = sh.getRow(2);
-		Cell cell = row.getCell(0);
-		String orgName = cell.getStringCellValue() + number;
+//		FileInputStream fis = new FileInputStream("./src/test/resources/testscriptdata.xlsx");
+//		Workbook wb = WorkbookFactory.create(fis);
+//		Sheet sh = wb.getSheet("org");
+//		Row row = sh.getRow(2);
+//		Cell cell = row.getCell(0);
+//		String orgName = cell.getStringCellValue() + number;
+		
+		String orgName = FileUtility.getDataFromExcelFile("org", 2, 0) + number;
 		
 		// ============================================================
 		// 1. OPEN THE BROWSER
@@ -102,6 +108,10 @@ public class CreateOrgTest {
 		} else {
 			driver = new ChromeDriver();
 		}
+		
+//		create object for different helper clases
+		WebDriverUtility wdUtil = new WebDriverUtility();
+		
 
 		System.out.println("[INFO] Edge browser launched successfully.");
 
@@ -127,15 +137,23 @@ public class CreateOrgTest {
 		WebElement username = driver.findElement(By.name("user_name"));
 		WebElement password = driver.findElement(By.name("user_password"));
 		WebElement loginBtn = driver.findElement(By.id("submitButton"));
-
+		
 		System.out.println("[INFO] Login page elements identified.");
 
+		driver.navigate().refresh();
+
+//		re-initialization
+		
+		username = driver.findElement(By.name("user_name"));
 		username.sendKeys(un);
 		System.out.println("[INFO] Username entered.");
 
+
+		password = driver.findElement(By.name("user_password"));
 		password.sendKeys(pwd);
 		System.out.println("[INFO] Password entered.");
 
+		loginBtn = driver.findElement(By.id("submitButton"));
 		loginBtn.click();
 
 		System.out.println("[INFO] Login button clicked.");
@@ -212,9 +230,7 @@ public class CreateOrgTest {
 
 		System.out.println("[INFO] Profile icon identified.");
 
-		Actions act = new Actions(driver);
-
-		act.moveToElement(profileIcon).build().perform();
+		wdUtil.hover(driver, profileIcon);
 
 		System.out.println("[INFO] Mouse moved to profile icon.");
 

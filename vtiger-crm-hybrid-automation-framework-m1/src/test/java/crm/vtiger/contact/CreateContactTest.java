@@ -10,11 +10,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+
+import object_repository.ContactPage;
 
 /**
  * Test Script Name : CreateContactTest
@@ -23,16 +24,7 @@ import org.openqa.selenium.interactions.Actions;
  * Contact
  *
  * Description: This test script automates the creation of a new Contact in the
- * Vtiger CRM application.
- *
- * Test Flow: 1. Launch Chrome browser 2. Maximize the browser window 3.
- * Configure implicit wait 4. Navigate to Vtiger CRM application 5. Login using
- * valid credentials 6. Navigate to Contacts module 7. Open Create Contact page
- * 8. Enter Contact last name 9. Save the Contact 10. Verify the created Contact
- * last name 11. Logout from the application 12. Close the browser
- *
- * Expected Result: The Contact should be created successfully and the displayed
- * Contact last name should match the entered last name.
+ * Vtiger CRM application using Page Object Model.
  *
  * Author : Piyush Baldaniya
  */
@@ -40,18 +32,7 @@ public class CreateContactTest {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 
-//		we should never ever hard code the data into our test script
-		
-//		DDT => testing the application with the help of external resources 
-//				and running the script is called as data driven testing
-		
-//		common data => the data which is common for all test scripts
-
-//		String url = "http://localhost:8888/";
-//		String un = "admin";
-//		String pwd = "password";
-
-//		get data from properties file
+//		Get data from properties file
 		FileInputStream fis = new FileInputStream("./src/test/resources/cd.properties");
 		Properties pObj = new Properties();
 		pObj.load(fis);
@@ -59,17 +40,13 @@ public class CreateContactTest {
 		String un = pObj.getProperty("username");
 		String pwd = pObj.getProperty("password");
 
-		
-//		test script data => the data which is common for particular test scripts
-//		String lastName = "Sharma";
-		
+//		Get test script data from excel file
 		FileInputStream fis1 = new FileInputStream("./src/test/resources/testscriptdata.xlsx");
 		Workbook wb = WorkbookFactory.create(fis1);
 		Sheet sh = wb.getSheet("contact");
 		Row row = sh.getRow(5);
 		Cell cell = row.getCell(0);
 		String lastName = cell.getStringCellValue();
-		
 
 		// ============================================================
 		// 1. OPEN THE BROWSER
@@ -94,6 +71,9 @@ public class CreateContactTest {
 
 		System.out.println("[INFO] Implicit wait configured to 15 seconds.");
 
+		// Instantiate ContactPage object
+		ContactPage cp = new ContactPage(driver);
+
 		// ============================================================
 		// 2. LOGIN
 		// ============================================================
@@ -105,9 +85,9 @@ public class CreateContactTest {
 
 		System.out.println("[INFO] Vtiger CRM application opened.");
 
-		WebElement username = driver.findElement(By.name("user_name"));
-		WebElement password = driver.findElement(By.name("user_password"));
-		WebElement loginBtn = driver.findElement(By.id("submitButton"));
+		WebElement username = cp.getUsernameField();
+		WebElement password = cp.getPasswordField();
+		WebElement loginBtn = cp.getLoginButton();
 
 		System.out.println("[INFO] Login page elements identified.");
 
@@ -129,17 +109,17 @@ public class CreateContactTest {
 		System.out.println("----------------------------------------------------");
 		System.out.println("[STEP 2] Navigating to Contacts module...");
 
-		driver.findElement(By.linkText("Contacts")).click();
+		cp.getContactsLink().click();
 
 		System.out.println("[INFO] Contacts module opened.");
 
-		driver.findElement(By.cssSelector("[title='Create Contact...']")).click();
+		cp.getCreateContactLookupImg().click();
 
 		System.out.println("[INFO] Create Contact page opened.");
 
 		System.out.println("[INFO] Contact Last Name : " + lastName);
 
-		WebElement lastNameField = driver.findElement(By.name("lastname"));
+		WebElement lastNameField = cp.getLastNameEdt();
 
 		System.out.println("[INFO] Contact last name field identified.");
 
@@ -154,7 +134,7 @@ public class CreateContactTest {
 		System.out.println("----------------------------------------------------");
 		System.out.println("[STEP 3] Saving Contact...");
 
-		driver.findElement(By.className("save")).click();
+		cp.getSaveBtn().click();
 
 		System.out.println("[INFO] Save button clicked.");
 		System.out.println("[INFO] Contact save operation completed.");
@@ -166,7 +146,7 @@ public class CreateContactTest {
 		System.out.println("----------------------------------------------------");
 		System.out.println("[STEP 4] Verifying Contact creation...");
 
-		String actLastName = driver.findElement(By.id("dtlview_Last Name")).getText();
+		String actLastName = cp.getContactHeaderInfo().getText();
 
 		System.out.println("[INFO] Expected Contact Last Name : " + lastName);
 		System.out.println("[INFO] Actual Contact Last Name   : " + actLastName);
@@ -188,7 +168,7 @@ public class CreateContactTest {
 		System.out.println("----------------------------------------------------");
 		System.out.println("[STEP 5] Logging out from Vtiger CRM...");
 
-		WebElement profileIcon = driver.findElement(By.cssSelector("[src='themes/softed/images/user.PNG']"));
+		WebElement profileIcon = cp.getProfileIcon();
 
 		System.out.println("[INFO] Profile icon identified.");
 
@@ -198,7 +178,7 @@ public class CreateContactTest {
 
 		System.out.println("[INFO] Mouse moved to profile icon.");
 
-		driver.findElement(By.linkText("Sign Out")).click();
+		cp.getSignOutLink().click();
 
 		System.out.println("[INFO] Sign Out option clicked.");
 		System.out.println("[INFO] Logout completed successfully.");
