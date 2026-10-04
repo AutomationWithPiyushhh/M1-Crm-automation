@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[====================================================]]>
+    </line>
+    <line>
+      <![CDATA[READING COMMON DATA FROM JSON FILE]]>
+    </line>
+    <line>
+      <![CDATA[====================================================]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Browser : chrome]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] URL : http://49.249.29.4:8888/]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Username retrieved successfully.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Generated Organization Name : google_62]]>
+    </line>
+    <line>
+      <![CDATA[====================================================]]>
+    </line>
+    <line>
+      <![CDATA[TEST EXECUTION STARTED]]>
+    </line>
+    <line>
+      <![CDATA[Test Case : Create Organization]]>
+    </line>
+    <line>
+      <![CDATA[====================================================]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 1] Launching browser...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Chrome browser launched successfully.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Browser window maximized.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Implicit wait configured to 15 seconds.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Page objects created successfully.]]>
+    </line>
+    <line>
+      <![CDATA[----------------------------------------------------]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 2] Navigating to Vtiger CRM application...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Vtiger CRM application opened.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Login page elements identified.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Login page refreshed.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Username entered.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Password entered.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Login button clicked.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Login operation completed.]]>
+    </line>
+    <line>
+      <![CDATA[----------------------------------------------------]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 3] Navigating to Organizations module...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Organizations module opened.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Create Organization page opened.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Organization Name : google_62]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Organization name field identified.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Organization name entered successfully.]]>
+    </line>
+    <line>
+      <![CDATA[----------------------------------------------------]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 4] Saving Organization...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Save button clicked.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Organization save operation completed.]]>
+    </line>
+    <line>
+      <![CDATA[----------------------------------------------------]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 5] Verifying Organization creation...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Expected Organization Name : google_62]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Actual Organization Name   : google_62]]>
+    </line>
+    <line>
+      <![CDATA[[PASS] Organization created successfully !!!]]>
+    </line>
+    <line>
+      <![CDATA[----------------------------------------------------]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 6] Logging out from Vtiger CRM...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Profile icon identified.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Mouse moved to profile icon.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Sign Out option clicked.]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Logout completed successfully.]]>
+    </line>
+    <line>
+      <![CDATA[----------------------------------------------------]]>
+    </line>
+    <line>
+      <![CDATA[[STEP 7] Closing browser...]]>
+    </line>
+    <line>
+      <![CDATA[[INFO] Browser closed successfully.]]>
+    </line>
+    <line>
+      <![CDATA[====================================================]]>
+    </line>
+    <line>
+      <![CDATA[TEST EXECUTION COMPLETED]]>
+    </line>
+    <line>
+      <![CDATA[Test Case : Create Organization]]>
+    </line>
+    <line>
+      <![CDATA[====================================================]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2026-10-03T17:42:44 IST" name="Default suite" finished-at="2026-10-03T17:42:56 IST" duration-ms="12175">
+    <groups>
+    </groups>
+    <test started-at="2026-10-03T17:42:44 IST" name="Default test" finished-at="2026-10-03T17:42:56 IST" duration-ms="12175">
+      <class name="crm.vtiger.organization.OrgTest">
+        <test-method signature="createOrgTest()[pri:0, instance:crm.vtiger.organization.OrgTest@36ebc363]" started-at="2026-10-03T17:42:44 IST" name="createOrgTest" finished-at="2026-10-03T17:42:56 IST" duration-ms="12107" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[====================================================]]>
+            </line>
+            <line>
+              <![CDATA[READING COMMON DATA FROM JSON FILE]]>
+            </line>
+            <line>
+              <![CDATA[====================================================]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Browser : chrome]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] URL : http://49.249.29.4:8888/]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Username retrieved successfully.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Generated Organization Name : google_62]]>
+            </line>
+            <line>
+              <![CDATA[====================================================]]>
+            </line>
+            <line>
+              <![CDATA[TEST EXECUTION STARTED]]>
+            </line>
+            <line>
+              <![CDATA[Test Case : Create Organization]]>
+            </line>
+            <line>
+              <![CDATA[====================================================]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 1] Launching browser...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Chrome browser launched successfully.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Browser window maximized.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Implicit wait configured to 15 seconds.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Page objects created successfully.]]>
+            </line>
+            <line>
+              <![CDATA[----------------------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 2] Navigating to Vtiger CRM application...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Vtiger CRM application opened.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Login page elements identified.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Login page refreshed.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Username entered.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Password entered.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Login button clicked.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Login operation completed.]]>
+            </line>
+            <line>
+              <![CDATA[----------------------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 3] Navigating to Organizations module...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Organizations module opened.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Create Organization page opened.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Organization Name : google_62]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Organization name field identified.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Organization name entered successfully.]]>
+            </line>
+            <line>
+              <![CDATA[----------------------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 4] Saving Organization...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Save button clicked.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Organization save operation completed.]]>
+            </line>
+            <line>
+              <![CDATA[----------------------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 5] Verifying Organization creation...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Expected Organization Name : google_62]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Actual Organization Name   : google_62]]>
+            </line>
+            <line>
+              <![CDATA[[PASS] Organization created successfully !!!]]>
+            </line>
+            <line>
+              <![CDATA[----------------------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 6] Logging out from Vtiger CRM...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Profile icon identified.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Mouse moved to profile icon.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Sign Out option clicked.]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Logout completed successfully.]]>
+            </line>
+            <line>
+              <![CDATA[----------------------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[[STEP 7] Closing browser...]]>
+            </line>
+            <line>
+              <![CDATA[[INFO] Browser closed successfully.]]>
+            </line>
+            <line>
+              <![CDATA[====================================================]]>
+            </line>
+            <line>
+              <![CDATA[TEST EXECUTION COMPLETED]]>
+            </line>
+            <line>
+              <![CDATA[Test Case : Create Organization]]>
+            </line>
+            <line>
+              <![CDATA[====================================================]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- createOrgTest -->
+      </class> <!-- crm.vtiger.organization.OrgTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

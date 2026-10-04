@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ContactPage {
+public class VerifyContactPage {
 
 	// ==========================================
 	// INITIALIZATION
 	// ==========================================
 
-	public ContactPage(WebDriver driver) {
+	public VerifyContactPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -19,29 +19,14 @@ public class ContactPage {
 	// DECLARATION (@FindBy)
 	// ==========================================
 
-	@FindBy(css = "[title='Create Contact...']")
-	private WebElement createContactLookupImg;
-
-	@FindBy(name = "lastname")
-	private WebElement lastNameEdt;
-
-	@FindBy(className = "save")
-	private WebElement saveBtn;
+	@FindBy(id = "dtlview_Last Name")
+	private WebElement contactHeaderInfo;
 
 	// ==========================================
 	// GETTERS
 	// ==========================================
 
-	public WebElement getCreateContactLookupImg() {
-		return createContactLookupImg;
+	public WebElement getContactHeaderInfo() {
+		return contactHeaderInfo;
 	}
-
-	public WebElement getLastNameEdt() {
-		return lastNameEdt;
-	}
-
-	public WebElement getSaveBtn() {
-		return saveBtn;
-	}
-
 }
