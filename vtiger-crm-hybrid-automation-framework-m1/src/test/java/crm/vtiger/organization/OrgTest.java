@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -237,23 +238,21 @@ public class OrgTest {
 		// 5. VERIFICATION
 		// ============================================================
 
-		Reporter.log("----------------------------------------------------", true);
-		Reporter.log("[STEP 5] Verifying Organization creation...", true);
-
 		String actOrgName = driver.findElement(By.id("dtlview_Organization Name")).getText();
 
-		Reporter.log("[INFO] Expected Organization Name : " + orgName, true);
-
-		Reporter.log("[INFO] Actual Organization Name   : " + actOrgName, true);
-
-		if (actOrgName.equals(orgName)) {
-
-			Reporter.log("[PASS] Organization created successfully !!!", true);
-
-		} else {
-
-			Reporter.log("[FAIL] Organization creation failed...", true);
-		}
+//		if (actOrgName.equals(orgName + "abc")) {
+//
+//			Reporter.log("[PASS] Organization created successfully !!!", true);
+//
+//		} else {
+//
+//			Reporter.log("[FAIL] Organization creation failed...", true);
+//		}
+		
+		boolean status = actOrgName.equals(orgName);
+		
+		Assert.assertTrue(status);
+//		Assert.assertEquals(actOrgName, orgName);
 
 		// ============================================================
 		// 6. LOGOUT
