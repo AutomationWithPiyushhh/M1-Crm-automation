@@ -1,0 +1,15 @@
+<suite name="my-suite">
+	<groups>
+		<run>
+			<include name="regression" />
+			<!-- <exclude name="regression" /> -->
+		</run>
+	</groups>
+	<test name="my-test">
+		<classes>
+			<class name="typesOfExecution.ContactTest" />
+			<class name="typesOfExecution.OrgTest" />
+			<class name="typesOfExecution.LeadTest" />
+		</classes>
+	</test>
+</suite>

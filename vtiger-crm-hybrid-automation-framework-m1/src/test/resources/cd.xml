@@ -1,0 +1,11 @@
+<suite name="data-suite">
+	<test name="data-test">  
+		<parameter name="browser" value="chrome" />
+		<parameter name="url" value="http://localhost:8888/" />
+		<parameter name="username" value="admin" />
+		<parameter name="password" value="manager" />
+		<classes>
+			<class name="typesOfExecution.XmlOppTest" />
+		</classes>
+	</test>
+</suite>

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testng_extra.EnabledOrgTest">
+      <class name="testng_extra.LearningDataProvider">
         <methods>
-          <include name="modifyOrgTest"/>
+          <include name="case1"/>
         </methods>
-      </class> <!-- testng_extra.EnabledOrgTest -->
+      </class> <!-- testng_extra.LearningDataProvider -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

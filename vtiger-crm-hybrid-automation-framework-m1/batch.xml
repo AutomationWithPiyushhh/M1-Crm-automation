@@ -1,0 +1,9 @@
+<suite name="my-suite">
+	<test name="my-test">
+		<classes>
+			<class name="typesOfExecution.ContactTest" />
+			<class name="typesOfExecution.OrgTest" />
+			<class name="typesOfExecution.LeadTest" />
+		</classes>
+	</test>
+</suite>

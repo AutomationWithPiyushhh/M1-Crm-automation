@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
 /**
  * Test Script Name : CreateOrgTest
@@ -40,10 +41,12 @@ import org.openqa.selenium.interactions.Actions;
  *
  * Author : Piyush Baldaniya
  */
-public class CreateOppTest {
+public class OppTest {
 
-	public static void main(String[] args) throws InterruptedException {
+//	public static void main(String[] args) throws InterruptedException {
 
+	@Test
+	public void createOppTest() throws InterruptedException {
 		// ============================================================
 		// 1. OPEN THE BROWSER
 		// ============================================================
