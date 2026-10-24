@@ -1,14 +1,13 @@
 package crm.vtiger.lead;
 
-import java.time.Duration;
 import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import base_utlitiy.BaseClass;
 
 /**
  * Test Script Name : CreateOrgTest
@@ -31,60 +30,18 @@ import org.openqa.selenium.interactions.Actions;
  *
  * Author : Piyush Baldaniya
  */
-public class CreateOrgTest {
+public class LeadTest extends BaseClass {
 
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public void createOrgTest() {
 
 		// ============================================================
 		// 1. OPEN THE BROWSER
 		// ============================================================
 
-		System.out.println("====================================================");
-		System.out.println("TEST EXECUTION STARTED");
-		System.out.println("Test Case : Create Organization");
-		System.out.println("====================================================");
-
-		System.out.println("[INFO] Launching Chrome browser...");
-
-		WebDriver driver = new ChromeDriver();
-
-		System.out.println("[INFO] Chrome browser launched successfully.");
-
-		driver.manage().window().maximize();
-
-		System.out.println("[INFO] Browser window maximized.");
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-		System.out.println("[INFO] Implicit wait configured to 15 seconds.");
-
 		// ============================================================
 		// 2. LOGIN
 		// ============================================================
-
-		System.out.println("----------------------------------------------------");
-		System.out.println("[STEP 1] Navigating to Vtiger CRM application...");
-
-		driver.get("http://49.249.29.4:8888/");
-
-		System.out.println("[INFO] Vtiger CRM application opened.");
-
-		WebElement username = driver.findElement(By.name("user_name"));
-		WebElement password = driver.findElement(By.name("user_password"));
-		WebElement loginBtn = driver.findElement(By.id("submitButton"));
-
-		System.out.println("[INFO] Login page elements identified.");
-
-		username.sendKeys("admin");
-		System.out.println("[INFO] Username entered.");
-
-		password.sendKeys("admin");
-		System.out.println("[INFO] Password entered.");
-
-		loginBtn.click();
-
-		System.out.println("[INFO] Login button clicked.");
-		System.out.println("[INFO] Login operation completed.");
 
 		// ============================================================
 		// 3. CREATE ORGANIZATION
@@ -114,13 +71,13 @@ public class CreateOrgTest {
 //		handling multiple window
 //		get the home address
 		String PID = driver.getWindowHandle();
-		
+
 //		perform the task which will open new windows
 		driver.findElement(By.cssSelector("img[src='themes/softed/images/select.gif']")).click();
-		
+
 //		get the session ids of all the opened windows
 		Set<String> CIDs = driver.getWindowHandles();
-		
+
 		for (String i : CIDs) {
 //			iterate through each and every window
 			driver.switchTo().window(i);
@@ -129,14 +86,14 @@ public class CreateOrgTest {
 				break;
 			}
 		}
-		
+
 //		perform the task
 		driver.findElement(By.name("search_text")).sendKeys("automationwithpiyush" + Keys.ENTER);
 		driver.findElement(By.linkText("automationwithpiyush")).click();
-		
+
 //		get back home
 		driver.switchTo().window(PID);
-		
+
 		System.out.println("[INFO] Organization name entered successfully.");
 
 		// ============================================================
@@ -173,42 +130,13 @@ public class CreateOrgTest {
 //
 //		}
 
-		
-		Thread.sleep(5000);
 		// ============================================================
 		// 6. LOGOUT
 		// ============================================================
 
-		System.out.println("----------------------------------------------------");
-		System.out.println("[STEP 5] Logging out from Vtiger CRM...");
-
-		WebElement profileIcon = driver.findElement(By.cssSelector("[src='themes/softed/images/user.PNG']"));
-
-		System.out.println("[INFO] Profile icon identified.");
-
-		Actions act = new Actions(driver);
-
-		act.moveToElement(profileIcon).build().perform();
-
-		System.out.println("[INFO] Mouse moved to profile icon.");
-
-		driver.findElement(By.linkText("Sign Out")).click();
-
-		System.out.println("[INFO] Sign Out option clicked.");
-		System.out.println("[INFO] Logout completed successfully.");
-
 		// ============================================================
 		// 7. CLOSE THE BROWSER
 		// ============================================================
-
-		System.out.println("----------------------------------------------------");
-		System.out.println("[STEP 6] Closing browser...");
-
-		Thread.sleep(1000);
-
-		driver.quit();
-
-		System.out.println("[INFO] Browser closed successfully.");
 
 		// ============================================================
 		// TEST EXECUTION COMPLETED

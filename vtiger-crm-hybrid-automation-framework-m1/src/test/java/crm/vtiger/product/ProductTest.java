@@ -40,7 +40,7 @@ import org.openqa.selenium.interactions.Actions;
  *
  * Author : Piyush Baldaniya
  */
-public class CreateOrgTest {
+public class ProductTest {
 
 	public static void main(String[] args) throws InterruptedException {
 

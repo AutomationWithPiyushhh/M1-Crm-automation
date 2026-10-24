@@ -45,4 +45,10 @@ public class LoginPage {
 		return loginButton;
 	}
 
+	public void login(String un, String pwd) {
+		usernameField.sendKeys(un);
+		passwordField.sendKeys(pwd);
+		loginButton.click();
+	}
+	
 }

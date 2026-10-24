@@ -1,13 +1,12 @@
 package crm.vtiger.opp;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import base_utlitiy.BaseClass;
 
 /**
  * Test Script Name : CreateOrgTest
@@ -41,7 +40,7 @@ import org.testng.annotations.Test;
  *
  * Author : Piyush Baldaniya
  */
-public class OppTest {
+public class OppTest extends BaseClass {
 
 //	public static void main(String[] args) throws InterruptedException {
 
@@ -51,52 +50,10 @@ public class OppTest {
 		// 1. OPEN THE BROWSER
 		// ============================================================
 
-		System.out.println("====================================================");
-		System.out.println("TEST EXECUTION STARTED");
-		System.out.println("Test Case : Create Organization");
-		System.out.println("====================================================");
-
-		System.out.println("[INFO] Launching Chrome browser...");
-
-		WebDriver driver = new ChromeDriver();
-
-		System.out.println("[INFO] Chrome browser launched successfully.");
-
-		driver.manage().window().maximize();
-
-		System.out.println("[INFO] Browser window maximized.");
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-		System.out.println("[INFO] Implicit wait configured to 15 seconds.");
-
 		// ============================================================
 		// 2. LOGIN
 		// ============================================================
 
-		System.out.println("----------------------------------------------------");
-		System.out.println("[STEP 1] Navigating to Vtiger CRM application...");
-
-		driver.get("http://localhost:8888/");
-
-		System.out.println("[INFO] Vtiger CRM application opened.");
-
-		WebElement username = driver.findElement(By.name("user_name"));
-		WebElement password = driver.findElement(By.name("user_password"));
-		WebElement loginBtn = driver.findElement(By.id("submitButton"));
-
-		System.out.println("[INFO] Login page elements identified.");
-
-		username.sendKeys("admin");
-		System.out.println("[INFO] Username entered.");
-
-		password.sendKeys("password");
-		System.out.println("[INFO] Password entered.");
-
-		loginBtn.click();
-
-		System.out.println("[INFO] Login button clicked.");
-		System.out.println("[INFO] Login operation completed.");
 
 		// ============================================================
 		// 3. CREATE ORGANIZATION
@@ -151,15 +108,7 @@ public class OppTest {
 		System.out.println("[INFO] Expected Organization Name : " + orgName);
 		System.out.println("[INFO] Actual Organization Name   : " + actOrgName);
 
-		if (actOrgName.equals(orgName)) {
-
-			System.out.println("[PASS] Organization created successfully !!!");
-
-		} else {
-
-			System.out.println("[FAIL] Organization creation failed...");
-
-		}
+		Assert.assertEquals(orgName, actOrgName);
 
 		// ============================================================
 		// 6. LOGOUT

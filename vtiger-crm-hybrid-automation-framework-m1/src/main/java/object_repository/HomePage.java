@@ -53,4 +53,10 @@ public class HomePage {
 	public WebElement getSignOutLink() {
 		return signOutLink;
 	}
+	
+	public void logout() {
+		profileIcon.click();
+		signOutLink.click();
+	}
+	
 }

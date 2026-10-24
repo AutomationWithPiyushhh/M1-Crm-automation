@@ -3,11 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testng_extra.LearningDataProvider">
+      <class name="crm.vtiger.contact.ContactTest">
         <methods>
-          <include name="case1"/>
+          <include name="logOut"/>
+          <include name="login"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="createContactTest"/>
         </methods>
-      </class> <!-- testng_extra.LearningDataProvider -->
+      </class> <!-- crm.vtiger.contact.ContactTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

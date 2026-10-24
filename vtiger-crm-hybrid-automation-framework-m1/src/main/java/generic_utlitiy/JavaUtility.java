@@ -6,7 +6,7 @@ public class JavaUtility {
 		return random;
 	}
 	
-	public static String getTodaysDateTime() {
-		return null;
+	public static long getTodaysDateTime() {
+		return System.currentTimeMillis()/1000;
 	}
 }
