@@ -12,6 +12,7 @@ public class OrgTest {
 	@Parameters("bro")
 	@Test
 	public void createOrgTest(String browser) throws InterruptedException {
+
 		WebDriver driver = null;
 		if (browser.equals("chrome")) {
 			driver = new ChromeDriver();
